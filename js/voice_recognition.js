@@ -106,7 +106,7 @@ if ("webkitSpeechRecognition" in window || "SpeechRecognition" in window) {
         }
     };
 } else {
-    open_dialog_error(error_text_51);
+    //open_dialog_error(error_text_51);
 }
 
 /* // Розпізнавання голосу

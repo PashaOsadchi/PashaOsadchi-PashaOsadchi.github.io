@@ -126,7 +126,7 @@ function add_map_video_surveillance_one(lat_1, lon_1, lat_2, lon_2, name_polygon
 
     google.maps.event.addListener(window[name_polygon], "click", (e) => {
         // Закриває попереднє відкрите вікно при клікові у слідуючому об'єкті паркувального простору
-        if (info_window_video_surveillance) info_window_video_surveillance.close();
+        close_info_window(info_window_video_surveillance);
 
         info_window_video_surveillance.setPosition(e.latLng);
         info_window_video_surveillance.setContent(content_info_window_video_surveillance);
@@ -134,5 +134,5 @@ function add_map_video_surveillance_one(lat_1, lon_1, lat_2, lon_2, name_polygon
     });
 
     // Закриває попереднє відкрите вікно при клікові на карті
-    google.maps.event.addListener(map, "click", () => {if (info_window_video_surveillance) info_window_video_surveillance.close()});
+    google.maps.event.addListener(map, "click", () => close_info_window(info_window_video_surveillance));
 }

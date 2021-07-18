@@ -26,9 +26,15 @@ function delete_all_overlay_maps() {
     delete_heatmap_house_private();
     delete_archival_photos_markers();
 
+    close_info_window(info_window_video_surveillance);
+    close_info_window(info_window_parking_space);
+    close_info_window(info_window_recreation_areas);
+
     // Видаляє межі усіх населених пунктів
     polyline_community_boundary_or_added = false;
     delete_markers_1(polyline_arr);
+
+    
 
     // Змінює колір кнопок
     const elements = document.querySelectorAll(".button_sidebar_add_map");
@@ -185,3 +191,15 @@ function delete_markers_2(arr) {
     });
     arr = [];
 }
+
+// Закриває діалогове вікно
+function close_info_window(info_window) {
+    if (info_window) info_window.close();
+}
+close_info_window(info_window_video_surveillance);
+close_info_window(info_window_parking_space);
+close_info_window(info_window_recreation_areas);
+
+//if (info_window_video_surveillance) info_window_video_surveillance.close();
+//if (info_window_parking_space) info_window_parking_space.close();
+//if (info_window_recreation_areas) info_window_recreation_areas.close()

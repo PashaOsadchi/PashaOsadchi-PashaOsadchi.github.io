@@ -22,7 +22,7 @@ function add_map_recreation_areas(patch_arr, name_polygon, message_text) {
 
     google.maps.event.addListener(window[name_polygon], "click", (e) => {
         // Закриває попереднє відкрите вікно при клікові у слідуючі зоні відпочинку
-        if (info_window_recreation_areas) info_window_recreation_areas.close();
+        close_info_window(info_window_recreation_areas);
 
         info_window_recreation_areas.setPosition(e.latLng);
         info_window_recreation_areas.setContent(content_info_window_recreation_areas);
@@ -30,7 +30,7 @@ function add_map_recreation_areas(patch_arr, name_polygon, message_text) {
     });
 
     // Закриває попереднє відкрите вікно при клікові на карті
-    google.maps.event.addListener(map, "click", () => { if (info_window_recreation_areas) info_window_recreation_areas.close()});
+    google.maps.event.addListener(map, "click", () => close_info_window(info_window_recreation_areas));
 }
 
 // Додає на карту зони відпочинку

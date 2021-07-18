@@ -21,7 +21,7 @@ function add_map_parking_space(patch_arr, name_polygon, message_text, fill_сolo
 
     google.maps.event.addListener(window[name_polygon], "click", (e) => {
         // Закриває попереднє відкрите вікно при клікові у слідуючому об'єкті паркувального простору
-        if (info_window_parking_space) info_window_parking_space.close();
+        close_info_window(info_window_parking_space);
 
         info_window_parking_space.setPosition(e.latLng);
         info_window_parking_space.setContent(content_info_window_parking_space);
@@ -29,7 +29,7 @@ function add_map_parking_space(patch_arr, name_polygon, message_text, fill_сolo
     });
 
     // Закриває попереднє відкрите вікно при клікові на карті
-    google.maps.event.addListener(map, "click", () => {if (info_window_parking_space) info_window_parking_space.close()});
+    google.maps.event.addListener(map, "click", () => close_info_window(info_window_parking_space));
 }
 
 // Додає на карту об'єкти паркувального простору
