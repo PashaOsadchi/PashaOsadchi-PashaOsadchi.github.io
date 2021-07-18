@@ -196,10 +196,3 @@ function delete_markers_2(arr) {
 function close_info_window(info_window) {
     if (info_window) info_window.close();
 }
-close_info_window(info_window_video_surveillance);
-close_info_window(info_window_parking_space);
-close_info_window(info_window_recreation_areas);
-
-//if (info_window_video_surveillance) info_window_video_surveillance.close();
-//if (info_window_parking_space) info_window_parking_space.close();
-//if (info_window_recreation_areas) info_window_recreation_areas.close()
