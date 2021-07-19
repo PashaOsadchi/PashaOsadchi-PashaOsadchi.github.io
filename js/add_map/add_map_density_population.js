@@ -64,7 +64,7 @@ let heatmap_house_private = null;
 
 
 
-// Додає на карту шар із густиною населення на території Ладижинської територіальної громади (сайт на стадії розробки)
+// Додає на карту шар із густиною населення на території Ладижинської міської територіальної громади
 function add_map_density_population_house_multifamily() {
     if (heatmap_house_multifamily) return delete_heatmap_house_multifamily();
 
@@ -114,7 +114,7 @@ function add_map_density_population_house_multifamily_2() {
     });
 }
 
-// Додає на карту шар із густиною населення на території Ладижинської територіальної громади (сайт на стадії розробки) для приватних будинків
+// Додає на карту шар із густиною населення на території Ладижинської міської територіальної громади для приватних будинків
 function add_map_density_population_house_private() {
     if (heatmap_house_private) return delete_heatmap_house_private();
 

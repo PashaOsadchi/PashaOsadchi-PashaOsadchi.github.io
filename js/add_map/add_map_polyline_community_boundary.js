@@ -53,8 +53,8 @@ function add_map_polyline_community_boundary_all() {
 
     polyline_community_boundary_or_added = true;
      
-    // Додає на карту межі Ладижинської територіальної громади (сайт на стадії розробки)
-    add_map_polyline_community_boundary(data_community_boundary_arr, "#FF0000", "poly_community_boundary", "Межа Ладижинської територіальної громади (сайт на стадії розробки)");
+    // Додає на карту межі Ладижинської міської територіальної громади
+    add_map_polyline_community_boundary(data_community_boundary_arr, "#FF0000", "poly_community_boundary", "Межа Ладижинської міської територіальної громади");
 
     // Додає на карту межі Заозерного
     add_map_polyline_community_boundary(data_community_boundary_zaozerne_arr, "#ffe100", "poly_zaozerne", "Межа c.Заозерне");
