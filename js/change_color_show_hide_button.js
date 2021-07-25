@@ -12,8 +12,8 @@ function change_color_show_hide_button_bloсk(id) {
     elements.forEach(el => el.style.backgroundColor = "rgba(102, 255, 0, 0.6)");
 }
 
-/*// Змінює колір кнопки
-function change_color_show_hide_button(id) {
+// Змінює колір кнопки
+function change_color_show_hide_button_id(id) {
     const el = document.getElementById(id); 
 
     if (window.getComputedStyle(el).backgroundColor == 'rgba(102, 255, 0, 0.6)') {
@@ -21,4 +21,4 @@ function change_color_show_hide_button(id) {
     };
 
     el.style.backgroundColor = 'rgba(102, 255, 0, 0.6)';
-} */
+}

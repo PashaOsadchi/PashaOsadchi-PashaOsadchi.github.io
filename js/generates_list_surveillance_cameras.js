@@ -3,6 +3,9 @@ function generates_list_surveillance_cameras() {
     let report_str = `
     <summary class="summary_title_name">Камери відеоспостереження</summary>
 
+    <button class="button_sidebar_add_map" id="id_button_add_map_video_surveillance_additional_markers"
+                onclick="add_map_video_surveillance_additional_markers()">Відобразити маркери</button>
+
     <button class="button_sidebar_add_map" id="id_button_add_map_video_surveillance_cameras_all"
                 onclick="add_map_video_surveillance_all()">Всі (${data_surveillance_cameras_arr.length} шт.)</button>
     `;

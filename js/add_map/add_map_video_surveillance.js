@@ -1,21 +1,26 @@
 let video_surveillance_arr = [];
+let video_surveillance_additional_markers_arr = [];
 let info_window_video_surveillance = null;
 
 let all_cameras_added = false;
 let all_cameras_one_owner_added = false;
+let cameras_added_additional_markers = false;
+
+let added_cameras_arr = [];
 
 let code_last_camera_owner = 0;
 
 // Додає на карту камери відеоспостереження
 function add_map_video_surveillance_all() {
-
     let map_offset_arr = [];
 
-    change_color_show_hide_button_bloсk('id_details_video_surveillance_cameras');
+    added_cameras_arr = [];
+
+    change_color_show_hide_button_bloсk("id_details_video_surveillance_cameras");
 
     delete_video_surveillance_markers();
 
-    data_surveillance_cameras_arr.forEach(el => {
+    data_surveillance_cameras_arr.forEach((el) => {
         const place_installation_surveillance_camera_arr = data_place_installation_surveillance_camera_arr.filter((e) => e.id == el.place_installation_id);
 
         const owners_surveillance_cameras_arr = data_owners_surveillance_cameras_arr.filter((e) => e.id == el.owners_code);
@@ -40,8 +45,10 @@ function add_map_video_surveillance_all() {
         const obj = {};
         obj.latitude = place_installation_surveillance_camera_arr[0].latitude;
         obj.longitude = place_installation_surveillance_camera_arr[0].longitude;
-        map_offset_arr.push(obj)
+        map_offset_arr.push(obj);
     });
+
+    added_cameras_arr = map_offset_arr;
 
     // Після додавання камер відеоспостереження маштабує карту
     map_offset(map_offset_arr);
@@ -49,8 +56,9 @@ function add_map_video_surveillance_all() {
 
 // Додає на карту камери відеоспостереження однієї організації
 function add_map_video_surveillance(owners_id = 0) {
+    added_cameras_arr = [];
 
-    change_color_show_hide_button_bloсk('id_details_video_surveillance_cameras');
+    change_color_show_hide_button_bloсk("id_details_video_surveillance_cameras");
 
     delete_video_surveillance_markers();
 
@@ -63,7 +71,9 @@ function add_map_video_surveillance(owners_id = 0) {
         arr = data_surveillance_cameras_arr.filter((e) => e.owners_code == owners_id);
     }
 
-    arr.forEach(el => {
+    added_cameras_arr = arr;
+
+    arr.forEach((el) => {
         const place_installation_surveillance_camera_arr = data_place_installation_surveillance_camera_arr.filter((e) => e.id == el.place_installation_id);
 
         const owners_surveillance_cameras_arr = data_owners_surveillance_cameras_arr.filter((e) => e.id == owners_id);
@@ -88,8 +98,10 @@ function add_map_video_surveillance(owners_id = 0) {
         const obj = {};
         obj.latitude = place_installation_surveillance_camera_arr[0].latitude;
         obj.longitude = place_installation_surveillance_camera_arr[0].longitude;
-        map_offset_arr.push(obj)
+        map_offset_arr.push(obj);
     });
+
+    added_cameras_arr = map_offset_arr;
 
     // Після додавання камер відеоспостереження маштабує карту
     map_offset(map_offset_arr);
@@ -135,4 +147,29 @@ function add_map_video_surveillance_one(lat_1, lon_1, lat_2, lon_2, name_polygon
 
     // Закриває попереднє відкрите вікно при клікові на карті
     google.maps.event.addListener(map, "click", () => close_info_window(info_window_video_surveillance));
+}
+
+// Додатково додає маркер до точки дерозміщена камера відеоспостереження
+function add_map_video_surveillance_additional_markers() {
+    if (cameras_added_additional_markers) {
+        return delete_video_surveillance_additional_markers();
+    }
+
+    if (added_cameras_arr.length) {
+        added_cameras_arr.forEach((el) => {
+
+            const marker = new google.maps.Marker({
+                position: new google.maps.LatLng(el.latitude, el.longitude),
+                icon: 'icon/blue-dot.png',
+                map: map,
+            });
+
+            video_surveillance_additional_markers_arr.push(marker);
+        });
+
+        cameras_added_additional_markers = true;
+    } else {
+        change_color_show_hide_button_id("id_button_add_map_video_surveillance_additional_markers");
+        open_dialog_error(error_text_52);
+    }
 }

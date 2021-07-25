@@ -18,6 +18,7 @@ function delete_all_overlay_maps() {
     delete_route_public_transport_markers();
     delete_parking_space_markers();
     delete_video_surveillance_markers();
+    delete_video_surveillance_additional_markers()
     delete_traffic_flows_markers();
     delete_polyline_traffic_flow();
     delete_bicycle_service_center_markers();
@@ -155,7 +156,14 @@ function delete_parking_space_markers() {
 
 // Видаляє маркери камери відеоспостереження
 function delete_video_surveillance_markers() {
+    added_cameras_arr = [];
     delete_markers_1(video_surveillance_arr);
+}
+
+// Видаляє додаткові маркери камери відеоспостереження
+function delete_video_surveillance_additional_markers() {
+    cameras_added_additional_markers = false;
+    delete_markers_1(video_surveillance_additional_markers_arr);
 }
 
 // Видаляє маркери архівних фото
