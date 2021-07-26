@@ -124,4 +124,9 @@ const data_owners_surveillance_cameras_arr = [
         owners_name: `ДТЕК Ладижинська ТЕС`,
         owners_name_for_button: `ДТЕК Ладижинська ТЕС`,
     },
+    {
+        id: 26,
+        owners_name: `Кафе "Кава Шаурма"`,
+        owners_name_for_button: `Кафе "Кава Шаурма"`,
+    },
 ]
