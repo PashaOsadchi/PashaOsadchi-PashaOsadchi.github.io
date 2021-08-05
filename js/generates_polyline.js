@@ -2,25 +2,16 @@
 
 // Створює є полілінію у вигляді сектора
 function generates_polyline(center, initial_bearing, final_bearing, radius) {
-    /* console.log(center)
-    console.log(initial_bearing)
-    console.log(final_bearing)
-    console.log(radius)
- */
-    //initial_bearing = 0;  просто відсічений круг
-    //final_bearing = 90; від 0 до 200 просто відсічений круг
 
-    //initial_bearing = 0; пів круга
-    //final_bearing = 200; більше 200 круг без сектора
-
-    initial_bearing = 0; 
-    final_bearing = 360;
-
+    // https://developers.google.com/maps/documentation/javascript/reference/coordinates#LatLngBounds
     let bounds = new google.maps.LatLngBounds();
-     // середній радіус Землі в метрах
+
+    // середній радіус Землі в метрах
     const r = 6378137;
     const points = 300;
     const extp = [];
+
+    extp.push(center);
 
     // Розширте об'єкт Number, щоб перетворити градуси в радіани
     Number.prototype.toRad = function () {
@@ -55,3 +46,4 @@ function generates_polyline(center, initial_bearing, final_bearing, radius) {
 
     return extp;
 }
+
