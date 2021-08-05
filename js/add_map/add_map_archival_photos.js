@@ -24,7 +24,6 @@ function add_map_archival_photos_all() {
                 el.latitude_point_course,
                 el.longitude_point_course,
                 `archival_photos_${el.id}`,
-                message_text,
                 el.viewing_angle,
                 el.radius,
             );
@@ -36,7 +35,7 @@ function add_map_archival_photos_all() {
 };
 
 // Додає на карту архівне фото
-function add_map_archival_photos(id, lat_1, lon_1, lat_2, lon_2, name_polygon, message_text, viewing_angle, radius) {
+function add_map_archival_photos(id, lat_1, lon_1, lat_2, lon_2, name_polygon, viewing_angle, radius) {
     const centerPoint = new google.maps.LatLng(lat_1, lon_1);
 
     const course = calculate_course(lat_1, lon_1, lat_2, lon_2);
